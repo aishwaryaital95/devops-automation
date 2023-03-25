@@ -11,7 +11,17 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
+       
+        
+        
+         stage('Build docker image'){
+            steps{
+                script{
+                    sh 'docker build -t aish1320/kubernetes .'
+                }
+            }
         
         
     }
+}
 }
