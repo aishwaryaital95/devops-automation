@@ -22,6 +22,25 @@ pipeline {
             }
         
         
+             
+             
+             
+             
     }
-}
+        
+        stage('Push image to hub'){
+            steps{
+                script{
+                    withCredentials([string(credentialsId: 'dockerhubpwd1', variable: 'dockerhubpwd1')]) {
+ 
+                    
+                    sh 'docker login -u aish1320 -p ${dockerhubpwd1}'
+                        
+                    }
+                    sh 'docker push aish1320/kubernetes'
+                }
+            }
+        }
+        
+    }
 }
